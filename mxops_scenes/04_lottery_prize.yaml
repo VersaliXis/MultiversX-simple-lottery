@@ -1,0 +1,19 @@
+allowed_networks:
+    - devnet
+
+allowed_scenario:
+    - lottery
+
+
+steps:
+  
+
+  - type: ContractCall
+    sender: buyer2
+    contract: "lottery"
+    endpoint: callRewards
+    gas_limit: 60000000
+    arguments: 
+      - "%lottery.LastLotteryId"
+    checks: 
+      - type: Success

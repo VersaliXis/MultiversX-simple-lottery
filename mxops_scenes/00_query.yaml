@@ -1,0 +1,16 @@
+allowed_networks:
+    - devnet
+
+allowed_scenario:
+    - lottery
+
+steps:
+  - type: ContractQuery
+    contract: "lottery"
+    endpoint: getLastLotteryId
+    results_types:
+      - type: u32
+    results_save_keys: 
+      - LastLotteryId
+    print_results: true
+

@@ -1,0 +1,29 @@
+allowed_networks:
+    - devnet
+
+
+allowed_scenario:
+    - lottery
+
+steps:
+  - type: ContractUpgrade
+    sender: owner-shard0
+    wasm_path: ./contracts/random-picker/output/random-picker.wasm
+    contract: "random-picker"
+    gas_limit: 50000000
+    upgradeable: true
+    readable: false
+    payable: false
+    payable_by_sc: true
+
+  - type: ContractUpgrade
+    sender: owner
+    wasm_path: ./contracts/lottery/output/lottery.wasm
+    contract: "lottery"
+    gas_limit: 50000000
+    arguments:
+      - "%random-picker.address"
+    upgradeable: true
+    readable: false
+    payable: false
+    payable_by_sc: true

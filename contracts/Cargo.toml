@@ -1,0 +1,10 @@
+[dev-dependencies.lottery]
+path = "loottery"
+
+[dev-dependencies.random-picker]
+path = "random-picker"
+
+[dev-dependencies.multiversx-sc-scenario]
+version = "0.46.1"
+[dependencies.multiversx-sc]
+version = "0.46.1"

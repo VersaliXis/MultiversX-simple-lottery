@@ -1,0 +1,42 @@
+allowed_networks:
+    - devnet
+
+allowed_scenario:
+    - lottery
+
+steps:
+  - type: ContractCall
+    sender: creator
+    contract: "lottery"
+    endpoint: createLottery
+    gas_limit: 60000000
+    arguments: 
+      - $TICKET_PRICE:int
+      - $DEADLINE:int
+    esdt_transfers: 
+      - token_identifier: $PRIZE_TOKEN_ID:str
+        amount: $PRIZE_TOKEN_AMOUNT:int
+    checks: 
+      - type: Success
+
+  - type: ContractQuery
+    contract: "lottery"
+    endpoint: getLastLotteryId
+    results_types:
+      - type: u32
+    results_save_keys: 
+      - LastLotteryId
+    print_results: true
+
+  # Perform any buy action you want
+  - type: ContractCall
+    sender: buyer1
+    contract: "lottery"
+    endpoint: buyTickets
+    gas_limit: 60000000
+    arguments: 
+      - "%lottery.LastLotteryId"
+      - $QTY_BUYER1:int
+    value: $PRICE_BUYER1:int 
+    checks: 
+      - type: Success

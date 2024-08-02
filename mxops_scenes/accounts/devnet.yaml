@@ -1,0 +1,19 @@
+allowed_networks:
+    - devnet
+
+allowed_scenario:
+    - ".*" 
+
+# You must hav to owner wallets in order to
+# deploy lottery and random-picker in two different shards
+accounts:
+  - account_name: owner1
+    pem_path: ./wallets/wallet-owner-shard1.pem
+  - account_name: owner0
+    pem_path: ./wallets/wallet-owner-shard0.pem
+  - account_name: creator
+    pem_path: ./wallets/wallet-creator.pem
+  - account_name: buyer1
+    pem_path: ./wallets/wallet-buyer1.pem
+  - account_name: buyer2
+    pem_path: ./wallets/wallet-buyer2.pem
