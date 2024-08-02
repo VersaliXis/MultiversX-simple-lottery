@@ -3,7 +3,7 @@ Contract allowing to create a lottery, buy tickets and draw a winner.
 
 ## Table of Contents
 - [Concept](#concept)
-- [For Developpers](#developpers)
+- [For Developers](#developers)
 
 ## Concept
 This is the simplest lottery you can have. Participents: 
@@ -35,7 +35,7 @@ The **Participant** can decide to buy one one more tickets in a single transacti
 > Why calling another contract? Because *randomness can be predicted on MX* based on the current state, and anyone can simulate the transaction until it provides the desired result.  A way to avoid predictability is to perform an asynchronous call to another dedicated contract **on another shard**.
 
 
-## Developpers
+## Developers
 
 ### 1. Installation
 Clone the repository:
